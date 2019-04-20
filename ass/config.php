@@ -3,7 +3,7 @@
 $databaseHost = 'localhost';
 $databaseName = 'webuni';
 $databaseUsername = 'root';
-$databasePassword = '';
+$databasePassword = 'root';
 
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
 
