@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ITPM.iml" filepath="$PROJECT_DIR$/.idea/ITPM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ITPM_dinuka/.idea/ITPM.iml" filepath="$PROJECT_DIR$/../ITPM_dinuka/.idea/ITPM.iml" />
     </modules>
   </component>
 </project>

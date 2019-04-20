@@ -181,6 +181,27 @@ include('db/dbcon.php');
             <!-- Section-header -->
             <div class="section-header text-center">
               <h2 class="title">Courses</h2>
+
+                <?php
+                if(isset($_POST['search'])){
+
+                    $search = $_POST['search'];
+                    $sql1 = "SELECT * FROM courses where concat(c_name) like '".$search."%'";
+                    $search_results = filterTable($sql1);
+
+                }else{
+                    $sql1 = "SELECT * FROM courses";
+                    $search_results = filterTable($sql1);
+                }
+
+                //db connect
+                function filterTable($sql1){
+                    $conn = mysqli_connect('127.0.0.1','root','','webuni');
+                    $filter_results = mysqli_query($conn, $sql1);
+                    return $filter_results;
+
+                }
+                ?>
               <!--        Hover Search bar-->
   <form method="post" name="search_bar">
       <input type="search" placeholder="search.." name="search" id="search">
@@ -194,8 +215,8 @@ include('db/dbcon.php');
           <!-- /Row -->
 
           <?php
-          $sql = "SELECT * FROM courses";
-          $courses = $db->query($sql);
+          // $sql = "SELECT * FROM courses";
+          // $courses = $db->query($sql);
           ?>
             <!-- Data Table area Start-->
             <div class="data-table-area">
@@ -207,7 +228,7 @@ include('db/dbcon.php');
                               <div class="table-responsive">
                                 <table id="courseTable" class="table table-striped">
                                   <tbody>
-                                    <?php while ($cs = mysqli_fetch_assoc($courses)) { ?>
+                                    <?php while ($cs = mysqli_fetch_assoc($search_results)) { ?>
                                     <tr>
 
                                       <td class="text-center">
@@ -284,34 +305,34 @@ include('db/dbcon.php');
         <script type="text/javascript" src="js/main.js"></script>
 
         <script>
-        $(document).ready(function(){
-          $(".dropdown-toggle").dropdown();
-        });
-      </script>
-
-      <script>
-    $(document).ready(function () {
-        $('#search').keyup(function () {
-            search_table($(this).val());
-        });
-
-        function search_table(value){
-            $('#courseTable').each(function (){
-               var found = 'false';
-               $(this).each(function () {
-                  if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0 )
-                  {
-                      found = 'true';
-                  }
-               });
-               if(found == 'true'){
-                   $(this).show();
-               }else {
-                   $(this).hide();
-               }
-            });
-        }
-    });
+    //    $(document).ready(function(){
+    //      $(".dropdown-toggle").dropdown();
+    //    });
+    //  </script>
+    //
+    //  <script>
+    //$(document).ready(function () {
+    //    $('#search').keyup(function () {
+    //        search_table($(this).val());
+    //    });
+    //
+    //    function search_table(value){
+    //        $('#courseTable').each(function (){
+    //           var found = 'false';
+    //           $(this).each(function () {
+    //              if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0 )
+    //              {
+    //                  found = 'true';
+    //              }
+    //           });
+    //           if(found == 'true'){
+    //               $(this).show();
+    //           }else {
+    //               $(this).hide();
+    //           }
+    //        });
+    //    }
+    //});
 </script>
 
     </body>
