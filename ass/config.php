@@ -1,7 +1,7 @@
 <?php
 
 $databaseHost = 'localhost';
-$databaseName = 'assesment';
+$databaseName = 'webuni';
 $databaseUsername = 'root';
 $databasePassword = '';
 
