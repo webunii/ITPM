@@ -96,7 +96,7 @@ include('db/dbcon.php');
           $enro_results = mysqli_query($db, $enro);
           ?>
 
-          
+
         <!--  Main navigation  -->
         <ul class="main-nav nav navbar-nav navbar-right">
           <li><a href="main.php">Home</a></li>

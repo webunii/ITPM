@@ -83,11 +83,40 @@ include('db/dbcon.php');
              $c = mysqli_fetch_assoc($courses);
          ?>
 
+
+                <!--fetch data from enrolled_course table-->
+                <?php
+                $enrolled = "SELECT * FROM enrolled_courses WHERE user_name = '$user'";
+                $enrolled_results = mysqli_query($db, $enrolled);
+                $data = mysqli_fetch_assoc($enrolled_results);
+                ?>
+
+
+                <!--used again because in first is already assigned-->
+                <?php
+                $enro = "SELECT * FROM enrolled_courses WHERE user_name = '$user'";
+                $enro_results = mysqli_query($db, $enro);
+                ?>
+
 				<!--  Main navigation  -->
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li><a href="course.php">Home</a></li>
 					<li><a href="#course"><?= $c['c_code'].' - '.' '.$c['c_name']; ?></a></li>
-          <li><a href="mycourse.php">My Courses</a></li>
+
+
+                    <!--this will get all the enrolled courses-->
+                    <?php if ($data['user_name'] == $user) {
+                        echo '<li class="has-dropdown"><a href="#">My Courses</a>
+                            <ul class="dropdown">';
+                        while ($da = mysqli_fetch_array($enro_results)) {
+                            echo '<li><a href="materials.php?id='; echo $da['c_id']; echo '">'; echo $da['c_name']; echo '</a></li>';
+                        }
+                        echo '</ul>
+                    </li>';
+                    } ?>
+
+
+
           <li class="has-dropdown"><a href="#">Libraries</a>
             <ul class="dropdown">
               <li><a href="countdown-timer">References</a></li>

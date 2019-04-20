@@ -10,21 +10,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../ITPM_dinuka/course.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../ITPM_dinuka/materials.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1343">
-              <caret line="215" column="16" selection-start-line="215" selection-start-column="16" selection-end-line="215" selection-end-column="16" />
-            </state>
+            <state relative-caret-position="-510" />
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/course.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/materials.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="225" column="51" selection-start-line="225" selection-start-column="51" selection-end-line="225" selection-end-column="51" />
-            </state>
+            <state relative-caret-position="-408" />
           </provider>
         </entry>
       </file>
@@ -63,8 +59,8 @@
         <option value="$PROJECT_DIR$/Admin/db/dbcon.php" />
         <option value="$PROJECT_DIR$/countdown-timer/config.php" />
         <option value="$PROJECT_DIR$/ass/config.php" />
-        <option value="$PROJECT_DIR$/course.php" />
         <option value="$PROJECT_DIR$/main.php" />
+        <option value="$PROJECT_DIR$/course.php" />
       </list>
     </option>
   </component>
@@ -80,7 +76,17 @@
     </navigator>
     <panes>
       <pane id="ProjectPane" />
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="ITPM" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\xampp\htdocs\ITPM_dinuka" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -113,7 +119,7 @@
       <option name="presentableId" value="Default" />
       <updated>1555771768208</updated>
       <workItem from="1555771771605" duration="1641000" />
-      <workItem from="1555775680923" duration="2634000" />
+      <workItem from="1555775680923" duration="2981000" />
     </task>
     <task id="LOCAL-00001" summary="ass db file changed">
       <created>1555772422015</created>
@@ -133,7 +139,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4275000" />
+    <option name="totallyTimeSpent" value="4622000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -251,18 +257,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/course.php">
+    <entry file="file://$PROJECT_DIR$/../ITPM_dinuka/course.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="225" column="51" selection-start-line="225" selection-start-column="51" selection-end-line="225" selection-end-column="51" />
+        <state relative-caret-position="425">
+          <caret line="119" column="14" lean-forward="true" selection-start-line="108" selection-start-column="12" selection-end-line="119" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../ITPM_dinuka/course.php">
+    <entry file="file://$PROJECT_DIR$/course.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="215" column="16" selection-start-line="215" selection-start-column="16" selection-end-line="215" selection-end-column="16" />
+        <state relative-caret-position="327">
+          <caret line="98" column="10" selection-start-line="98" selection-start-column="10" selection-end-line="98" selection-end-column="10" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ITPM_dinuka/materials.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/materials.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408" />
       </provider>
     </entry>
   </component>
