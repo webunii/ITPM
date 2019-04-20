@@ -2,20 +2,20 @@
 
 webUni Learning Management System which has developed using PHP.
 
-##Content
+##Content##
 
-* Login/Register
+* **Login/Register**
 
-* Lecturers' details handling
+* **Lecturers' details handling**
 	* Add/Update/Delete Lecturers' details
 	
-* Course Management
+* **Course Management**
 	* Add/Update/Delete Courses
 	
-* Create Separate Pages
+* **Create Separate Pages**
 	It creates a separate page for each course, and displays all the course materials for that course.
 	
-* Course Materials Management
+* **Course Materials Management**
 	* Lectures
 		* Add/Update/Delete Lectures
 	
@@ -25,5 +25,5 @@ webUni Learning Management System which has developed using PHP.
 	* Notices
 		* Add/Delete Notices
 		
-* Notifications
+* **Notifications**
 	Send notifications to Student when added a new course.
