@@ -82,11 +82,44 @@ include('db/dbcon.php');
         $u = "select * from student where username = '$user'";
         $result = $db->query($u); ?>
 
+
+          <!--fetch data from enrolled_course table-->
+          <?php
+          $enrolled = "SELECT * FROM `enrolled_courses` WHERE user_name = '$user'";
+          $enrolled_results = $db->query($enrolled);
+          $data = mysqli_fetch_assoc($enrolled_results);
+          ?>
+
+          <!--used again because in first is already assigned-->
+          <?php
+          $enro = "SELECT * FROM enrolled_courses WHERE user_name = '$user'";
+          $enro_results = mysqli_query($db, $enro);
+          ?>
+
+
         <!--  Main navigation  -->
         <ul class="main-nav nav navbar-nav navbar-right">
           <li><a href="main.php">Home</a></li>
           <li><a href="#course">Courses</a></li>
-          <li><a href="mycourse.php">My Courses</a></li>
+
+
+            <!--My course dropdown-->
+            <?php if($data['user_name'] == $user){
+                echo '<li class="has-dropdown"><a href="#">My Courses</a>
+                            <ul class="dropdown">';
+                while($da = mysqli_fetch_array($enro_results)){
+                    echo '<li><a href="materials.php?id='; echo $da['c_id'];echo '">';echo $da['c_name']; echo '</a></li>';
+                }
+                echo '</ul>
+                    </li>';
+            }?>
+
+
+
+
+
+
+
           <li class="has-dropdown"><a href="#">Libraries</a>
             <ul class="dropdown">
               <li><a href="#">References</a></li>
@@ -181,6 +214,27 @@ include('db/dbcon.php');
             <!-- Section-header -->
             <div class="section-header text-center">
               <h2 class="title">Courses</h2>
+
+                <?php
+                if(isset($_POST['search'])){
+
+                    $search = $_POST['search'];
+                    $sql1 = "SELECT * FROM courses where concat(c_name) like '".$search."%'";
+                    $search_results = filterTable($sql1);
+
+                }else{
+                    $sql1 = "SELECT * FROM courses";
+                    $search_results = filterTable($sql1);
+                }
+
+                //db connect
+                function filterTable($sql1){
+                    $conn = mysqli_connect('127.0.0.1','root','','webuni');
+                    $filter_results = mysqli_query($conn, $sql1);
+                    return $filter_results;
+
+                }
+                ?>
               <!--        Hover Search bar-->
   <form method="post" name="search_bar">
       <input type="search" placeholder="search.." name="search" id="search">
@@ -194,8 +248,8 @@ include('db/dbcon.php');
           <!-- /Row -->
 
           <?php
-          $sql = "SELECT * FROM courses";
-          $courses = $db->query($sql);
+          // $sql = "SELECT * FROM courses";
+          // $courses = $db->query($sql);
           ?>
             <!-- Data Table area Start-->
             <div class="data-table-area">
@@ -207,7 +261,7 @@ include('db/dbcon.php');
                               <div class="table-responsive">
                                 <table id="courseTable" class="table table-striped">
                                   <tbody>
-                                    <?php while ($cs = mysqli_fetch_assoc($courses)) { ?>
+                                    <?php while ($cs = mysqli_fetch_assoc($search_results)) { ?>
                                     <tr>
 
                                       <td class="text-center">
@@ -284,34 +338,34 @@ include('db/dbcon.php');
         <script type="text/javascript" src="js/main.js"></script>
 
         <script>
-        $(document).ready(function(){
-          $(".dropdown-toggle").dropdown();
-        });
-      </script>
-
-      <script>
-    $(document).ready(function () {
-        $('#search').keyup(function () {
-            search_table($(this).val());
-        });
-
-        function search_table(value){
-            $('#courseTable').each(function (){
-               var found = 'false';
-               $(this).each(function () {
-                  if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0 )
-                  {
-                      found = 'true';
-                  }
-               });
-               if(found == 'true'){
-                   $(this).show();
-               }else {
-                   $(this).hide();
-               }
-            });
-        }
-    });
+    //    $(document).ready(function(){
+    //      $(".dropdown-toggle").dropdown();
+    //    });
+    //  </script>
+    //
+    //  <script>
+    //$(document).ready(function () {
+    //    $('#search').keyup(function () {
+    //        search_table($(this).val());
+    //    });
+    //
+    //    function search_table(value){
+    //        $('#courseTable').each(function (){
+    //           var found = 'false';
+    //           $(this).each(function () {
+    //              if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0 )
+    //              {
+    //                  found = 'true';
+    //              }
+    //           });
+    //           if(found == 'true'){
+    //               $(this).show();
+    //           }else {
+    //               $(this).hide();
+    //           }
+    //        });
+    //    }
+    //});
 </script>
 
     </body>
