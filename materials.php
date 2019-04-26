@@ -5,6 +5,14 @@ session_start();
 require_once("user_status.php");
 
 include('db/dbcon.php');
+
+if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we expired?
+    //redirect to logout.php
+    header('Location: logout.php'); //change yoursite.com to the name of you site!!
+} else{ //if we haven't expired:
+    $_SESSION['last_activity'] = time(); //this was the moment of last activity.
+}
+
  ?>
 <head>
 
