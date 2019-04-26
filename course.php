@@ -122,8 +122,8 @@ include('db/dbcon.php');
 
           <li class="has-dropdown"><a href="#">Libraries</a>
             <ul class="dropdown">
-              <li><a href="#">References</a></li>
-              <li><a href="#">Past Papers</a></li>
+              <li><a href="references.php">References</a></li>
+              <li><a href="papers.php">Past Papers</a></li>
             </ul>
           </li>
           <?php while ($d = mysqli_fetch_assoc($result)) { ?>
