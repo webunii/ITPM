@@ -216,6 +216,71 @@ include('db/dbcon.php');
      </div>
  </div>
 
+     <?php
+$sql = "SELECT * FROM courses";
+$courses = $db->query($sql);
+$co1 = mysqli_num_rows($courses);
+
+$l = "SELECT * FROM student";
+$le = $db->query($l);
+$co2 = mysqli_num_rows($le);
+
+$as = "SELECT * FROM user WHERE role = '1'";
+$ass = $db->query($as);
+$co3 = mysqli_num_rows($ass);
+
+?>
+
+<!-- Start Email Statistic area-->
+<div class="notika-email-post-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <div class="email-statis-inner notika-shadow">
+          <div class="email-ctn-round">
+            <div class="text-center">
+              <h2>Students Count</h2>
+            </div>
+            <div class="email-statis-wrap">
+              <div class="email-round-nock">
+                <input type="text" class="knob" value="0" data-rel="<?= $co2; ?>" data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#57A6D4" data-thickness=".10" data-readonly="true">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <div class="email-statis-inner notika-shadow">
+          <div class="email-ctn-round">
+            <div class="text-center">
+              <h2>Lecturers Count</h2>
+            </div>
+            <div class="email-statis-wrap">
+              <div class="email-round-nock">
+                <input type="text" class="knob" value="0" data-rel="<?= $co3; ?>" data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#57A6D4" data-thickness=".10" data-readonly="true">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <div class="email-statis-inner notika-shadow">
+          <div class="email-ctn-round">
+            <div class="text-center">
+              <h2>Courses</h2>
+            </div>
+            <div class="email-statis-wrap">
+              <div class="email-round-nock">
+                <input type="text" class="knob" value="0" data-rel="<?= $co1; ?>" data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#57A6D4" data-thickness=".10" data-readonly="true">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Email Statistic area-->
 
 <?php include 'include/footer.php'; ?>
 <!-- jquery

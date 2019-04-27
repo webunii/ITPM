@@ -4,8 +4,45 @@
   session_start();
   require_once("user_status.php");
 
+//  check session time
+  $_SESSION['logged_in'] = true; //set you've logged in
+  $_SESSION['last_activity'] = time(); //your last activity was now, having logged in.
+  $_SESSION['expire_time'] = 3*60*60; //expire time in seconds: three hours (you must change this)
+
+
   include('db/dbcon.php');
+
   ?>
+
+<!--  session timeout function-->
+<!--  <script type="text/javascript">-->
+<!--      function start_countdown()-->
+<!--      {-->
+<!---->
+<!--          var counter=5;-->
+<!--          myVar= setInterval(function()-->
+<!--          {-->
+<!--              if(counter==0)-->
+<!--              {-->
+<!--                  $.ajax-->
+<!--                  ({-->
+<!--                      type:'post',-->
+<!--                      url:'logout.php',-->
+<!--                      data:{-->
+<!--                          logout:"logout"-->
+<!--                      },-->
+<!--                      success:function(response)-->
+<!--                      {-->
+<!--                          window.location="index.php";-->
+<!--                      }-->
+<!--                  });-->
+<!--              }-->
+<!--              counter--;-->
+<!--          }, 1000)-->
+<!--      }-->
+<!--  </script>-->
+
+
   <head>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -43,6 +80,7 @@
   </head>
 
   <body>
+<!--  <script type="text/javascript">start_countdown();</script>-->
     <!-- Header -->
     <header id="home">
       <!-- Background Image -->

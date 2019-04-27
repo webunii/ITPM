@@ -3,12 +3,20 @@
 <?php
 session_start();
 require_once("user_status.php");
-
 include('db/dbcon.php');
+
+//session timeout condition
+if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we expired?
+    //redirect to logout.php
+    header('Location: logout.php'); //change yoursite.com to the name of you site!!
+} else{ //if we haven't expired:
+    $_SESSION['last_activity'] = time(); //this was the moment of last activity.
+}
 ?>
 <head>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -18,7 +26,6 @@ include('db/dbcon.php');
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
   <title>Courses</title>
-
   <!-- Google font -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
 
@@ -122,8 +129,8 @@ include('db/dbcon.php');
 
           <li class="has-dropdown"><a href="#">Libraries</a>
             <ul class="dropdown">
-              <li><a href="#">References</a></li>
-              <li><a href="#">Past Papers</a></li>
+              <li><a href="references.php">References</a></li>
+              <li><a href="papers.php">Past Papers</a></li>
             </ul>
           </li>
           <?php while ($d = mysqli_fetch_assoc($result)) { ?>
