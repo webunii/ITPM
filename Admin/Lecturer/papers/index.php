@@ -151,7 +151,7 @@ if(isset($_REQUEST['delete_id']))
                       ?>
                       <tr>
                         <td><a href="?delete_id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a></td>
-                        <td><a href="time.php?id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a></td>
+                        <td><?php echo $row['name']; ?></td>
                         <td><a href="upload/<?php echo $row['file']; ?>"><?php echo $row['file']; ?></a></td>
                         <td><?php echo $row['course']; ?></td>
                         <td><a href="update.php?update_id=<?php echo $row['id']; ?>" class="btn btn-info">Update</a></td>
