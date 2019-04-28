@@ -27,3 +27,19 @@ webUni Learning Management System which has developed using PHP.
 		
 * **Notifications**
 	Send notifications to Student when added a new course.
+
+* **Search Courses**
+	Registered Student can search an availability for course.
+	
+* **Enrollment for a course**
+	Student must give enrollment key before enroll to a course.
+	
+* **Enrolled Courses handling**
+	Once enrolled to the course, students can directly go to the Course materials page.
+	
+* **e Library**
+	* References
+		* Add/Update/Delete References
+	
+	* Past papers
+		* Add/Update/Delete Past papers
