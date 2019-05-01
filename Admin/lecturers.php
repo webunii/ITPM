@@ -100,8 +100,6 @@ include('db/dbcon.php');
                       </li>
                       <li><a href="course.php"><i class="notika-icon notika-paperclip"></i> Courses Management</a>
                       </li>
-                      <li><a href="#"><i class="notika-icon notika-windown"></i> Courses Count</a>
-                      </li>
                       <li><a href="Notices/index.php"><i class="notika-icon notika-paperclip"></i> Add Notices</a>
                       </li>
                     </ul>
@@ -130,16 +128,14 @@ include('db/dbcon.php');
                   </li>
                   <li><a href="course.php"><i class="notika-icon notika-paperclip"></i> Courses</a>
                   </li>
-                  <li><a href="#"><i class="notika-icon notika-eye"></i> Courses Count</a>
-                  </li>
                   <li><a href="Notices/index.php"><i class="notika-icon notika-paperclip"></i> Add Notices</a>
                   </li>
                 </ul>
                 <div class="tab-content custom-menu-content">
                   <div id="log" class="tab-pane in notika-tab-menu-bg animated flipInX">
                     <ul class="notika-main-menu-dropdown">
-                      <li><a href="#">My Profile</a></li>
-                      <li><a href="../logout.php">Sign Out</a></li>
+                      <li><a href="profile.php">My Profile</a></li>
+                      <li><a href="logout.php">Sign Out</a></li>
                     </ul>
                   </div>
                 </div>
