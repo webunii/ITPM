@@ -1,6 +1,7 @@
 # ITPM
 
 webUni Learning Management System which has developed using PHP.
+This is our 3rd Year 1st Semester group project.
 
 ##  Content  ##
 
