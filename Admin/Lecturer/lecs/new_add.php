@@ -231,7 +231,7 @@ if(isset($_REQUEST['btn_insert']))
 															<select name="txt_course" class="form-control">
                                 <option></option>
 																<?php
-																$select_stmt=$db->prepare('SELECT * FROM courses WHERE c_incharge = '$incharge'');
+																$select_stmt=$db->prepare("SELECT * FROM courses WHERE c_incharge = '$incharge'");
 																//$select_stmt->bindParam(':e',$e);
 																$select_stmt->execute();
 																while ($row=$select_stmt->fetch(PDO::FETCH_ASSOC)) { ?>

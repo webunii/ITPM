@@ -92,7 +92,7 @@ include('db/dbcon.php');
                                 ?>
                              <li><a data-toggle="collapse" data-target="#log" href="#"><?= $c['fname'].' '.' '.$c['lname']; ?></a>
                                  <ul class="collapse dropdown-header-top">
-                                   <li><a href="#">My Profile</a></li>
+                                   <li><a href="profile.php">My Profile</a></li>
                                    <li><a href="../logout.php">Sign Out</a></li>
                                  </ul>
                              </li>
@@ -126,7 +126,7 @@ include('db/dbcon.php');
                    <div class="tab-content custom-menu-content">
                      <div id="log" class="tab-pane in notika-tab-menu-bg animated flipInX">
                        <ul class="notika-main-menu-dropdown">
-                         <li><a href="#">My Profile</a></li>
+                         <li><a href="profile.php">My Profile</a></li>
                          <li><a href="../logout.php">Sign Out</a></li>
                        </ul>
                      </div>
