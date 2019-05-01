@@ -79,9 +79,9 @@ include('db/dbcon.php');
                                  <ul class="mobile-menu-nav">
                                    <li><a href="lecturers.php"><i class="notika-icon notika-left-arrow"></i> Back</a>
                                    </li>
-                                   <li><a href="#"><i class="notika-icon notika-form"></i> My Profile</a>
+                                   <li><a href="profile.php"><i class="notika-icon notika-form"></i> My Profile</a>
                                    </li>
-                                   <li><a href="#"><i class="notika-icon notika-form"></i> Sign Out</a>
+                                   <li><a href="logout.php"><i class="notika-icon notika-form"></i> Sign Out</a>
                                    </li>
                                  </ul>
                              </nav>
@@ -100,9 +100,9 @@ include('db/dbcon.php');
                              <li><a href="lecturers.php"><i class="notika-icon notika-left-arrow"></i> Back</a>
                              </li>
 
-                             <li><a href="#"><i class="notika-icon notika-support"></i> My Profile</a>
+                             <li><a href="profile.php"><i class="notika-icon notika-support"></i> My Profile</a>
                              </li>
-                             <li><a href="#"><i class="notika-icon notika-right-arrow"></i> Sign Out</a>
+                             <li><a href="logout.php"><i class="notika-icon notika-right-arrow"></i> Sign Out</a>
                              </li>
                          </ul>
                      </div>
