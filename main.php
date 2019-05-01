@@ -7,7 +7,7 @@
 //  check session time
   $_SESSION['logged_in'] = true; //set you've logged in
   $_SESSION['last_activity'] = time(); //your last activity was now, having logged in.
-  $_SESSION['expire_time'] = 7; //expire time in seconds: three hours (you must change this)
+  $_SESSION['expire_time'] = 2000; //expire time in seconds: three hours (you must change this)
 
 
   include('db/dbcon.php');
@@ -137,7 +137,7 @@
 
             <!--fetch data from enrolled_course table-->
             <?php
-            $enrolled = "SELECT * FROM `enrolled_courses` WHERE user_name = '$user'";
+            $enrolled = "SELECT * FROM enrolled_courses WHERE user_name = '$user'";
             $enrolled_results = $db->query($enrolled);
             $data = mysqli_fetch_assoc($enrolled_results);
             ?>

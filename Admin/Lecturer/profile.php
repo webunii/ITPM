@@ -160,7 +160,7 @@ include('../db/dbcon.php');
                                     <li><a data-toggle="collapse" data-target="#log" href="#"><?= $c['fname']; ?></a>
                                         <ul class="collapse dropdown-header-top">
                                           <li><a href="#">My Profile</a></li>
-                                          <li><a href="logout.php">Sign Out</a></li>
+                                          <li><a href="../logout.php">Sign Out</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="index.php"><i class="notika-icon notika-house"></i> Home</a>
@@ -190,7 +190,7 @@ include('../db/dbcon.php');
                             <div id="log" class="tab-pane in notika-tab-menu-bg animated flipInX">
                               <ul class="notika-main-menu-dropdown">
                                 <li><a href="profile.php">My Profile</a></li>
-                                <li><a href="logout.php">Sign Out</a></li>
+                                <li><a href="../logout.php">Sign Out</a></li>
                               </ul>
                             </div>
                       </div>

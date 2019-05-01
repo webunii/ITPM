@@ -81,7 +81,7 @@ include('db/dbcon.php');
         $result = $db->query($u); ?>
         <?php
              $id = $_GET['id'];
-             $sql = "SELECT * FROM timer WHERE aid = $id";
+             $sql = "SELECT * FROM timer WHERE id = '$id'";
              $as = $db->query($sql);
 
              while($a = mysqli_fetch_array($as)) {
@@ -92,7 +92,7 @@ include('db/dbcon.php');
                 $course = $a['course'];
    				  }
 
-             $names = "SELECT name FROM tbl_asses WHERE id = $id";
+             $names = "SELECT name FROM tbl_asses WHERE id = '$id'";
              $assi = $db->query($names);
              $b = mysqli_fetch_assoc($assi);
          ?>

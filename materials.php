@@ -91,7 +91,7 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
         $result = $db->query($u); ?>
         <?php
              $id = $_GET['id'];
-             $sql = "SELECT * FROM courses WHERE id = $id";
+             $sql = "SELECT * FROM courses WHERE id = '$id'";
              $courses = $db->query($sql);
              $c = mysqli_fetch_assoc($courses);
              $code = $c['c_code'];
@@ -238,7 +238,7 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
                     echo '<div id="course" class="section sm-padding">
                 <!-- Container -->
                     <div class="container">
-                    
+
                     <input type="hidden" name="mc_code" value="';
                     echo $c['c_name'];
                     echo '">';
@@ -341,7 +341,7 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
                                                     <tbody>';
                     while ($l = mysqli_fetch_assoc($ass)) {
                         echo '<tr>
-                                                            <td><a href="countdown-timer">';
+                                                            <td><a href="ass.php">';
                         echo $l['name'];
                         echo '</a></td>
                                                             <td>';

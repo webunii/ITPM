@@ -236,7 +236,7 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
 
                 //db connect
                 function filterTable($sql1){
-                    $conn = mysqli_connect('127.0.0.1','root','','webuni');
+                    $conn = mysqli_connect('127.0.0.1','root','root','webuni');
                     $filter_results = mysqli_query($conn, $sql1);
                     return $filter_results;
 

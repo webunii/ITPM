@@ -1,12 +1,5 @@
 <?php
 include_once('db/dbcon.php');
-$db = mysqli_connect('127.0.0.1','root','','webuni');
-if(mysqli_connect_errno()){
-    echo 'Database connection failed with following errors: '. mysqli_connect_error();
-    die();
-}
-
-
 
     $id = $_POST['id'];
     $user = $_POST['username'];
@@ -23,7 +16,7 @@ if(mysqli_connect_errno()){
 
 
     try{
-        $l = "INSERT INTO `enrolled_courses`(`en_id`,`st_id`, `c_id`, `c_code`, `c_name`, `user_name`) VALUES (' ','$stid','$id','$code','$cname','$user')";
+        $l = "INSERT INTO enrolled_courses(st_id, c_id, c_code, c_name, user_name) VALUES ('$stid','$id','$code','$cname','$user')";
         $m = $db->query($l);
 
         if($m === true){
@@ -37,10 +30,3 @@ if(mysqli_connect_errno()){
         echo $e;
 
     }
-
-
-
-
-
-
-
