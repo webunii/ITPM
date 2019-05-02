@@ -44,3 +44,6 @@ This is our 3rd Year 1st Semester group project.
 	
 	* Past papers
 		* Add/Update/Delete Past papers
+
+* **Comments Section**
+	Students can ask problems which are related to the course materials on comments section.
