@@ -88,6 +88,7 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
         <!--  Main navigation  -->
         <ul class="main-nav nav navbar-nav navbar-right">
           <li><a href="main.php">Home</a></li>
+          <li><a href="#course">My Courses</a></li>
 
           <?php while ($d = mysqli_fetch_assoc($result)) { ?>
             <li class="has-dropdown"><a href="#">Hello, &nbsp;<?= $d['fname'].' '.' '.$d['lname']; ?></a>
@@ -182,102 +183,114 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
 
                 </header>
                 <!-- /Header -->
+
+                <?php
+                $sql = "SELECT * FROM enrolled_courses WHERE user_name = '$user'";
+                $courses = $db->query($sql);
+                ?>
+                <!-- Contact -->
+                <div id="course" class="section md-padding">
                 <!-- Container -->
                 <div class="container">
 
                   <!-- Row -->
                   <div class="row">
+                    <!-- Section-header -->
+                    <div class="section-header text-center">
+                      <h2 class="title">My Courses</h2>
 
+                    </div>
+                    <!-- /Section-header -->
                   </div>
                   <!-- /Row -->
 
                   <!-- Data Table area Start-->
                   <div class="data-table-area">
                     <div class="container">
-                          <div class="data-table-list">
-                            <div class="row">
-                              <div class="col-sm-3"></div>
-                              <div class="col-sm-6">
-                                    <div class="table-responsive">
-                                      <table id="courseTable" class="table table-striped">
-                                        <tbody>
-                                          <?php while ($cs = mysqli_fetch_assoc($search_results)) { ?>
-                                          <tr>
+                      <div class="data-table-list">
+                        <div class="row">
+                          <div class="col-sm-3"></div>
+                          <div class="col-sm-6">
+                            <div class="table-responsive">
+                              <table class="table">
+                                <tbody>
+                                  <?php while ($cs = mysqli_fetch_assoc($courses)) { ?>
+                                    <tr>
 
-                                            <td class="text-center">
-                                              <a href="materials.php?id=<?=$cs['id']; ?>"><?= $cs['c_code'].' - '.' '.$cs['c_name']; ?></a></td>
+                                      <td class="text-center">
+                                        <a href="materials.php?id=<?=$cs['c_id']; ?>"><?= $cs['c_code'].' - '.' '.$cs['c_name']; ?></a></td>
 
-                                          </tr>
-                                        <?php } ?>
-                                        </tbody>
-                                      </table>
-                                    </div>
-                                    <!-- <a href="lecs/index.php" class="btn btn-primary">Click Here</a> -->
+                                      </tr>
+                                    <?php } ?>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <!-- <a href="lecs/index.php" class="btn btn-primary">Click Here</a> -->
                             </div>
                           </div>
-                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <!-- Data Table area End-->
+                </div>
+                <!-- /Container -->
+
               </div>
-              <!-- /Container -->
-
-            </div>
-            <!-- /Contact -->
+              <!-- /Contact -->
 
 
 
-            <!-- Footer -->
-            <footer id="footer" class="sm-padding bg-dark">
+              <!-- Footer -->
+              <footer id="footer" class="sm-padding bg-dark">
 
-              <!-- Container -->
-              <div class="container">
+                <!-- Container -->
+                <div class="container">
 
-                <!-- Row -->
-                <div class="row">
+                  <!-- Row -->
+                  <div class="row">
 
-                  <div class="col-md-12">
+                    <div class="col-md-12">
 
-                    <!-- footer copyright -->
-                    <div class="footer-copyright">
-                      <p>Copyright © 2019. All Rights Reserved.</p>
+                      <!-- footer copyright -->
+                      <div class="footer-copyright">
+                        <p>Copyright © 2019. All Rights Reserved.</p>
+                      </div>
+                      <!-- /footer copyright -->
+
                     </div>
-                    <!-- /footer copyright -->
 
                   </div>
+                  <!-- /Row -->
 
                 </div>
-                <!-- /Row -->
+                <!-- /Container -->
 
+              </footer>
+              <!-- /Footer -->
+
+              <!-- Back to top -->
+              <div id="back-to-top"></div>
+              <!-- /Back to top -->
+
+              <!-- Preloader -->
+              <div id="preloader">
+                <div class="preloader">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
               </div>
-              <!-- /Container -->
+              <!-- /Preloader -->
 
-            </footer>
-            <!-- /Footer -->
+              <!-- jQuery Plugins -->
+              <script type="text/javascript" src="js/jquery.min.js"></script>
+              <script type="text/javascript" src="js/bootstrap.min.js"></script>
+              <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+              <script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
+              <script type="text/javascript" src="js/main.js"></script>
 
-            <!-- Back to top -->
-            <div id="back-to-top"></div>
-            <!-- /Back to top -->
+            </body>
 
-            <!-- Preloader -->
-            <div id="preloader">
-              <div class="preloader">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-            <!-- /Preloader -->
-
-            <!-- jQuery Plugins -->
-            <script type="text/javascript" src="js/jquery.min.js"></script>
-            <script type="text/javascript" src="js/bootstrap.min.js"></script>
-            <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-            <script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
-            <script type="text/javascript" src="js/main.js"></script>
-
-          </body>
-
-          </html>
+            </html>
