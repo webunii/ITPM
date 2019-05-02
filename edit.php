@@ -191,6 +191,13 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
                       <h1 class="text-center"><img src="img/user.png" width="150px" height="150px"></h1>
                     </div>
                     <div class="col-sm-1"></div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2 white-text" for="username">User Name: </label>
+                      <div class="col-sm-5">
+                          <input type="text" class="form-control" id="username" name="username" value="<?php echo $check['username']?>" autocomplete="off" disabled>
+                      <span class="c_code-validation validation-error"></span></div>
+                    </div>
+                    <div class="col-sm-1"></div>
                           <div class="form-group">
                             <label class="control-label col-sm-2 white-text" for="fname">First Name: </label>
                             <div class="col-sm-5">
@@ -202,13 +209,6 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
                             <label class="control-label col-sm-2 white-text" for="lname">Last Name: </label>
                             <div class="col-sm-5">
                                 <input type="text" class="form-control" id="lname" name="lname" value="<?php echo $check['lname']?>" autocomplete="off">
-                            <span class="c_code-validation validation-error"></span></div>
-                          </div>
-                          <div class="col-sm-1"></div>
-                          <div class="form-group">
-                            <label class="control-label col-sm-2 white-text" for="username">User Name: </label>
-                            <div class="col-sm-5">
-                                <input type="text" class="form-control" id="username" name="username" value="<?php echo $check['username']?>" autocomplete="off">
                             <span class="c_code-validation validation-error"></span></div>
                           </div>
                           <div class="col-sm-1"></div>

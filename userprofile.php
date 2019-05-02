@@ -194,26 +194,32 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
                   <!-- Data Table area Start-->
                   <div class="data-table-area">
                     <div class="container">
-                      <div class="data-table-list">
-                        <div class="row">
-                          <div class="col-sm-3"></div>
-                          <div class="col-sm-6">
-                            <div class="table-responsive">
-                              hi
-                              nbfkf <br>
-                              kbfsdabf <br>
-                              bslfhkbsf <br>
-                              jlkbfdf <br>
+                          <div class="data-table-list">
+                            <div class="row">
+                              <div class="col-sm-3"></div>
+                              <div class="col-sm-6">
+                                    <div class="table-responsive">
+                                      <table id="courseTable" class="table table-striped">
+                                        <tbody>
+                                          <?php while ($cs = mysqli_fetch_assoc($search_results)) { ?>
+                                          <tr>
 
+                                            <td class="text-center">
+                                              <a href="materials.php?id=<?=$cs['id']; ?>"><?= $cs['c_code'].' - '.' '.$cs['c_name']; ?></a></td>
+
+                                          </tr>
+                                        <?php } ?>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    <!-- <a href="lecs/index.php" class="btn btn-primary">Click Here</a> -->
                             </div>
-
                           </div>
-                        </div>
+                          </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- Data Table area End-->
+                  <!-- Data Table area End-->
               </div>
               <!-- /Container -->
 
