@@ -155,7 +155,7 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
           <?php while ($d = mysqli_fetch_assoc($result)) { ?>
             <li class="has-dropdown"><a href="#">Hello, &nbsp;<?= $d['fname'].' '.' '.$d['lname']; ?></a>
               <ul class="dropdown">
-                <li><a href="#">User Profile</a></li>
+                <li><a href="userprofile.php">User Profile</a></li>
                 <li>
                   <a href="https://mail.google.com" target="_blank">
                     Student Email</a></li>
