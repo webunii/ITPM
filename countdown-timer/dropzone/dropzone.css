@@ -230,13 +230,13 @@
     .dropzone .dz-preview .dz-details {
       z-index: 20;
       position: absolute;
-      top: 0;
+      top: 2em;
       left: 0;
       opacity: 0;
-      font-size: 13px;
-      min-width: 50%;
+      font-size: 12px;
+      min-width: 100%;
       max-width: 50%;
-      padding: 2em 1em;
+      padding: auto;
       text-align: center;
       color: rgba(0, 0, 0, 0.9);
       line-height: 150%; }

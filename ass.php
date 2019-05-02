@@ -16,7 +16,7 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
  ?>
 <head>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -49,7 +49,7 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="countdown-timer/dropzone/dropzone.css" />
 <script type="text/javascript" src="countdown-timer/dropzone/dropzone.js"></script>
-<script type="text/javascript" src="countdown-timer/js/upload.js"></script>
+<script type="text/javascript" src="countdown-timer/upload.js"></script>
 
 </head>
 
@@ -223,6 +223,7 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
                                   </tr>
                                   </table>
                                   <br>
+
                                   <div class="container">
                                 <div class="dropzone">
                                   <div class="dz-message needsclick">
@@ -293,7 +294,7 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
 	<!-- /Preloader -->
 
 	<!-- jQuery Plugins -->
-	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
