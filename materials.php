@@ -158,14 +158,20 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
             </li>';
           } ?>
 
-
-
           <li class="has-dropdown"><a href="#">Libraries</a>
             <ul class="dropdown">
               <li><a href="references.php">References</a></li>
               <li><a href="papers.php">Past Papers</a></li>
             </ul>
           </li>
+
+          <?php if(isset($array[$p]['c_code'])){
+            if($array[$p]['c_code'] == $code){
+              while ($cs = mysqli_fetch_array($cour)){
+                echo '<li><a href="removedata.php?id='; echo $cs['id'];echo '">'; echo 'Unenrol me'; echo '</a></li>';
+              }
+            }
+          }?>
 
 
           <?php while ($d = mysqli_fetch_assoc($result)) { ?>
@@ -179,23 +185,13 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
                     <?php if(isset($array[$p]['c_code'])){
                       if($array[$p]['c_code'] == $code){
                         while ($cs = mysqli_fetch_array($cour)){
-                          echo '<li><a href="removedata.php?id='; echo $cs['id'];echo '">'; echo 'Leave this course'; echo '</a></li>';
+                          echo '<li><a href="removedata.php?id='; echo $cs['id'];echo '">'; echo 'Unenrol me'; echo '</a></li>';
                         }
                       }
                     }?>
                   </ul>
                 </li>
               <?php } ?>
-              <li>
-                <ul class="nav navbar-nav navbar-right">
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <span class="label label-pill label-danger count" style="border-radius:10px;"></span>
-                      <span class="fa fa-bell"></span></a>
-                      <ul class="dropdown-menu"></ul>
-                    </li>
-                  </ul>
-                </li>
               </ul>
               <!-- /Main navigation -->
 

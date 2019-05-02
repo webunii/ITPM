@@ -219,7 +219,6 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
 
                                       <td class="text-center">
                                         <a href="materials.php?id=<?=$cs['c_id']; ?>"><?= $cs['c_code'].' - '.' '.$cs['c_name']; ?></a></td>
-
                                       </tr>
                                     <?php } ?>
                                   </tbody>
