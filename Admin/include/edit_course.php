@@ -31,7 +31,7 @@
                           $sqllec = "SELECT * FROM user WHERE role = 1 ORDER BY id";
                           $name = $db->query($sqllec);
                           while($names = mysqli_fetch_assoc($name)) : ?>
-                          <option><?= $names['fname'].' '.' '.$names['lname']; ?></option>
+                          <option><?= $names['fname']; ?></option>
                         <?php endwhile; ?>
                       </select>                      </div>
 

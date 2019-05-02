@@ -65,7 +65,7 @@ if(isset($_REQUEST['btn_insert']))
     }
     else
     {
-      $errorMsg="Upload JPG , JPEG , PNG & GIF File Formate.....CHECK FILE EXTENSION"; //error message file extension
+      $errorMsg="Upload PDF Format.....CHECK FILE EXTENSION"; //error message file extension
     }
 
     if(!isset($errorMsg))

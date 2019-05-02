@@ -209,7 +209,7 @@ collaboration in the islands. Today we can proudly claim that we offer affordabl
 					<div class="contact">
 						<i class="fa fa-phone"></i>
 						<h3>Phone</h3>
-						<p>512-421-3940</p>
+						<p>(+94)779989726</p>
 					</div>
 				</div>
 				<!-- /contact -->

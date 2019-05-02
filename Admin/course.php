@@ -138,6 +138,8 @@ include('db/dbcon.php');
                                    </li>
                                    <li><a href="course.php"><i class="notika-icon notika-paperclip"></i> Courses Management</a>
                                    </li>
+                                   <li><a href="Notices/index.php"><i class="notika-icon notika-paperclip"></i> Add Notices</a>
+                                   </li>
                                  </ul>
                              </nav>
                          </div>
@@ -163,6 +165,8 @@ include('db/dbcon.php');
                              <li><a href="lecturers.php"><i class="notika-icon notika-edit"></i> Lecturers' Details</a>
                              </li>
                              <li><a href="course.php"><i class="notika-icon notika-paperclip"></i> Courses</a>
+                             </li>
+                             <li><a href="Notices/index.php"><i class="notika-icon notika-paperclip"></i> Add Notices</a>
                              </li>
                          </ul>
                          <div class="tab-content custom-menu-content">

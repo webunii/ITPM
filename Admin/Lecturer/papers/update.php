@@ -69,7 +69,7 @@ if(isset($_REQUEST['btn_update']))
   }
 	else
 	{
-	 $errorMsg="Upload DOCX File Formate.....CHECK FILE EXTENSION"; //error message file extension
+	 $errorMsg="Upload ZIP File Format.....CHECK FILE EXTENSION"; //error message file extension
 	}
 }
  else
