@@ -338,7 +338,7 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
                 <tbody>';
                 while ($l = mysqli_fetch_assoc($ass)) {
                   echo '<tr>
-                  <td><a href="ass.php?id=10"'; echo $l['id']; echo '?>';
+                  <td><a href="ass.php?id='; echo $l['id']; echo '">';
                   echo $l['name'];
                   echo '</a></td>
                   <td>';
