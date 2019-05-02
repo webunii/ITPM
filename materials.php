@@ -338,7 +338,7 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
                 <tbody>';
                 while ($l = mysqli_fetch_assoc($ass)) {
                   echo '<tr>
-                  <td><a href="ass.php">';
+                  <td><a href="ass.php?id=10"'; echo $l['id']; echo '?>';
                   echo $l['name'];
                   echo '</a></td>
                   <td>';
@@ -371,8 +371,8 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
 
             }else {
               echo '<div class="row">
-              <form method="post" name="codeSearch">
-              <input type="text" id="co" placeholder="Enter Key here!" name="co"  style="width: 150px; height: 35px"><input type="button" name="enroll" value="Enroll" id="enroll" class="example_a" >
+              <form method="post" name="codeSearch" class="text-center">
+              <input type="text" id="co" placeholder="Enter Key here !" name="co"  style="width: 200px; height: 35px"><input type="button" name="enroll" value="Enroll" id="enroll" class="example_a" >
               </form>
               </div>';
             }?>

@@ -5,6 +5,14 @@ session_start();
 require_once("user_status.php");
 
 include('db/dbcon.php');
+
+//session timeout condition
+if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we expired?
+    //redirect to logout.php
+    header('Location: logout2.php'); //change yoursite.com to the name of you site!!
+} else{ //if we haven't expired:
+    $_SESSION['last_activity'] = time(); //this was the moment of last activity.
+}
  ?>
 <head>
 
@@ -97,11 +105,36 @@ include('db/dbcon.php');
              $b = mysqli_fetch_assoc($assi);
          ?>
 
+         <!--fetch data from enrolled_course table-->
+         <?php
+         $enrolled = "SELECT * FROM `enrolled_courses` WHERE user_name = '$user'";
+         $enrolled_results = $db->query($enrolled);
+         $data = mysqli_fetch_assoc($enrolled_results);
+         ?>
+
+         <!--used again because in first is already assigned-->
+         <?php
+         $enro = "SELECT * FROM enrolled_courses WHERE user_name = '$user'";
+         $enro_results = mysqli_query($db, $enro);
+         ?>
+
 				<!--  Main navigation  -->
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li><a href="course.php">Home</a></li>
 					<li><a href="#course"><?= $b['name']; ?></a></li>
-          <li><a href="mycourse.php">My Courses</a></li>
+
+          <!--My course dropdown-->
+          <?php if($data['user_name'] == $user){
+              echo '<li class="has-dropdown"><a href="#">My Courses</a>
+                          <ul class="dropdown">';
+              while($da = mysqli_fetch_array($enro_results)){
+                  echo '<li><a href="materials.php?id='; echo $da['c_id'];echo '">';echo $da['c_name']; echo '</a></li>';
+              }
+              echo '</ul>
+                  </li>';
+          }?>
+
+
           <li class="has-dropdown"><a href="#">Libraries</a>
             <ul class="dropdown">
               <li><a href="#">References</a></li>
