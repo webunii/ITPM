@@ -175,14 +175,14 @@
 
             <li class="has-dropdown"><a href="#">Libraries</a>
               <ul class="dropdown">
-                <li><a href="#">References</a></li>
-                <li><a href="#">Past Papers</a></li>
+                <li><a href="references.php">References</a></li>
+                <li><a href="papers.php">Past Papers</a></li>
               </ul>
             </li>
             <?php while ($d = mysqli_fetch_assoc($result)) { ?>
               <li class="has-dropdown"><a href="#">Hello, &nbsp;<?= $d['fname'].' '.' '.$d['lname']; ?></a>
                 <ul class="dropdown">
-                  <li><a href="#">User Profile</a></li>
+                  <li><a href="userprofile.php">User Profile</a></li>
                   <li>
                     <a href="https://mail.google.com" target="_blank">
                       Student Email</a></li>
