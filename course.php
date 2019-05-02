@@ -254,10 +254,6 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
           </div>
           <!-- /Row -->
 
-          <?php
-          // $sql = "SELECT * FROM courses";
-          // $courses = $db->query($sql);
-          ?>
             <!-- Data Table area Start-->
             <div class="data-table-area">
               <div class="container">
@@ -345,35 +341,10 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
         <script type="text/javascript" src="js/main.js"></script>
 
         <script>
-    //    $(document).ready(function(){
-    //      $(".dropdown-toggle").dropdown();
-    //    });
-    //  </script>
-    //
-    //  <script>
-    //$(document).ready(function () {
-    //    $('#search').keyup(function () {
-    //        search_table($(this).val());
-    //    });
-    //
-    //    function search_table(value){
-    //        $('#courseTable').each(function (){
-    //           var found = 'false';
-    //           $(this).each(function () {
-    //              if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0 )
-    //              {
-    //                  found = 'true';
-    //              }
-    //           });
-    //           if(found == 'true'){
-    //               $(this).show();
-    //           }else {
-    //               $(this).hide();
-    //           }
-    //        });
-    //    }
-    //});
-</script>
+       $(document).ready(function(){
+         $(".dropdown-toggle").dropdown();
+       });
+     </script>
 
     </body>
 
