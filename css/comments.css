@@ -1,0 +1,118 @@
+.comment-wrapper{
+  margin: 10px;
+  border: 1px solid #e1e1e1;
+  height: 240px;
+  width: auto;
+  color: #444;
+}
+
+h4.comment-title{
+  height: 40px;
+  line-height: 37px;
+  font-size: 14px;
+  margin: 0 5px 0 5px;
+  color: #555;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.comments-list{
+  height: auto;
+  font-size: 13px;
+  margin: 10px 5px 5px 5px;
+  color: #555;
+}
+
+.comments-holder-ul{
+  list-style-type: none;
+  margin: 10px 0 0 0;
+  padding: 0px;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.comments-holder-ul .comment-holder{
+  list-style-type: none;
+  background: #fffff5;
+  height: auto;
+  width: auto;
+  margin: 5px 0 10px 0;
+  border: 1px solid #e1e1e1;
+  overflow: hidden;
+  position: relative;
+}
+
+.comments-holder-ul .comment-holder .user-img{
+  float: left;
+  height: 65px;
+  width: 65px;
+  margin: 0 10px 0 0;
+}
+
+.comments-holder-ul .comment-holder .user-img img.user-img-pic{
+  margin: 5px;
+  height: auto;
+  width: 55px;
+  border: 5px solid #a1a1a1;
+}
+
+ul.comments-holder-ul li.comment-holder .user-img img.user-img-pic:hover{
+  border: 5px solid #919191;
+}
+
+.comment-body{
+  width: auto;
+}
+
+ul.comments-holder-ul li.comment-holder h6.username-field{
+
+  height: 30px;
+  line-height: 27px;
+  color: #2E5CB8;
+  font-size: 14px;
+  margin: 0 0 0 10px;
+}
+
+ul.comments-holder-ul li.comment-holder .comment-text{
+  width: auto;
+  display: block;
+  font-size: 13px;
+  margin: 0 10px 10px 75px;
+  word-wrap: normal;
+}
+
+ul.comments-holder-ul li.comment-holder:hover .comment-buttons-holder{
+  display: block;
+}
+
+.comment-buttons-holder{
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0px;
+}
+
+.comment-insert{
+  height: 180px;
+  width: auto;
+  margin: 10px;
+  border: 1px solid #e1e1e1;
+  position: relative;
+}
+
+.comment-insert h5.who-says{
+  height: 30px;
+  width: auto;
+  line-height: 27px;
+  color: #2E5CB8;
+  font-size: 14px;
+  margin: 0 10px 0 10px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+/* .comment-insert textarea{
+  margin: 10px 15px 15px 15px;
+  position: absolute;
+  border: 1px solid #e1e1e1;
+  width: 95%;
+} */

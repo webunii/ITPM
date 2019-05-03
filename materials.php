@@ -50,6 +50,9 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
   <!-- Custom stlylesheet -->
   <link type="text/css" rel="stylesheet" href="css/style.css" />
 
+  <!-- comments stlylesheet -->
+  <link type="text/css" rel="stylesheet" href="css/comments.css" />
+
   <!--Button Style-->
   <link type="text/css" rel="stylesheet" href="css/ButtonStyleInMeterial.css"/>
 
@@ -145,7 +148,7 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
         <ul class="main-nav nav navbar-nav navbar-right">
           <li><a href="course.php">Home</a></li>
           <li><a href="#course"><?= $c['c_code'].' - '.' '.$c['c_name']; ?></a></li>
-
+          <li><a href="#comments">Comments Section</a></li>
 
           <!--this will get all the enrolled courses-->
           <?php if ($data['user_name'] == $user) {
@@ -192,290 +195,404 @@ if( $_SESSION['last_activity'] < time()-$_SESSION['expire_time'] ) { //have we e
                   </ul>
                 </li>
               <?php } ?>
-              </ul>
-              <!-- /Main navigation -->
+            </ul>
+            <!-- /Main navigation -->
 
-            </div>
-          </nav>
-          <!-- /Nav -->
-
-          <!-- home wrapper -->
-          <div class="home-wrapper">
-            <div class="container">
-              <div class="row">
-
-                <!-- home content -->
-                <div class="col-md-10 col-md-offset-1">
-                  <div class="home-content">
-                    <h1 class="white-text"><?= $c['c_code'].' - '.' '.$c['c_name']; ?></h1>
-                    <h4 class="white-text">Lecture Incharge : Mr/Ms. <?= $c['c_incharge']; ?>
-                    </h4>
-                  </div>
-                </div>
-                <!-- /home content -->
-
-              </div>
-            </div>
           </div>
-          <!-- /home wrapper -->
+        </nav>
+        <!-- /Nav -->
 
-        </header>
-        <!-- /Header -->
-        <!-- Contact -->
-        <div id="course" class="section sm-padding">
-
-          <!-- Container -->
+        <!-- home wrapper -->
+        <div class="home-wrapper">
           <div class="container">
+            <div class="row">
 
-            <!--check already enrolled if check open assignments-->
-            <?php if (isset($array[$p]['c_code'])) {
-              if ($array[$p]['c_code'] == $code) {
+              <!-- home content -->
+              <div class="col-md-10 col-md-offset-1">
+                <div class="home-content">
+                  <h1 class="white-text"><?= $c['c_code'].' - '.' '.$c['c_name']; ?></h1>
+                  <h4 class="white-text">Lecture Incharge : Mr/Ms. <?= $c['c_incharge']; ?>
+                  </h4>
+                </div>
+              </div>
+              <!-- /home content -->
 
-                echo '<div id="course" class="section sm-padding">
-                <!-- Container -->
-                <div class="container">
-
-                <input type="hidden" name="mc_code" value="';
-                echo $c['c_name'];
-                echo '">';
-
-                $ecourse = $c['c_name'];
-                $sql = "SELECT * FROM tbl_file WHERE course = '$ecourse'";
-                $cour = $db->query($sql);
-                $sql1 = "SELECT * FROM tbl_asses WHERE course = '$ecourse'";
-                $ass = $db->query($sql1);
-
-                echo '<!-- Row-->
-                <div class="row">
-                </div>
-                <!--Row -->
-                <!--Data Table area Start-->
-                <div class="data-table-area">
-                <div class="container">
-                <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="data-table-list">
-                <div class="row">
-                <div class="col-sm-6">
-                <div class="card text-center">
-                <div class="card-body">
-                <h5 class="card-title">';
-                echo 'Lectures';
-                echo '</h5>
-                <div class="table-responsive">
-                <table id="data-table-basic" class="table table-striped">
-                <thead>
-                <tr>
-                <th class="text-center">';
-                echo 'Name';
-                echo '</th>
-                <th class="text-center">';
-                echo 'File';
-                echo '</th>
-                <th class="text-center">';
-                echo 'View';
-                echo '</th>
-                <th class="text-center">';
-                echo 'Download';
-                echo '</th>
-                </tr>
-                </thead>
-                <tbody>';
-                while ($l = mysqli_fetch_assoc($cour)) {
-                  echo '<tr>
-                  <td>';
-                  echo $l['name'];
-                  echo '</td>
-                  <td>';
-                  echo $l['image'];
-                  echo '</td>
-                  <td><a href="Admin/Lecturer/lecs/upload/';
-                  echo $l['image'];
-                  echo '"';
-                  echo 'target="_blank">';
-                  echo 'View';
-                  echo '</a></td>
-                  <td><a href="Admin/Lecturer/lecs/upload/';
-                  echo $l['image'];
-                  echo '"';
-                  echo 'download>';
-                  echo 'Download';
-                  echo '</td></tr>
-                  </tr>';
-                }
-                echo '</tbody>
-                </table>
-                </div>
-                <!-- <a href="lecs/index.php" class="btn btn-primary">Click Here</a> -->
-                </div>
-                </div>
-                </div>
-                <div class="col-sm-5">
-                <div class="card text-center">
-                <div class="card-body">
-                <h5 class="card-title">';
-                echo 'Assignments';
-                echo '</h5>
-                <div class="table-responsive">
-                <table id="data-table-basic" class="table table-striped">
-                <thead>
-                <tr>
-                <th class="text-center">';
-                echo 'Name';
-                echo '</th>
-                <th class="text-center">';
-                echo 'Assignment';
-                echo '</th>
-                <th class="text-center">';
-                echo 'Download';
-                echo '</th>
-                </tr>
-                </thead>
-                <tbody>';
-                while ($l = mysqli_fetch_assoc($ass)) {
-                  echo '<tr>
-                  <td><a href="ass.php?id='; echo $l['id']; echo '">';
-                  echo $l['name'];
-                  echo '</a></td>
-                  <td>';
-                  echo $l['file'];
-                  echo '</td>
-                  <td><a href="Admin/Lecturer/assignments/upload/';
-                  echo $l['file'];
-                  echo '"';
-                  echo 'download>';
-                  echo 'Download';
-                  echo '</td></tr>
-                  </tr>';
-                }
-                echo '</tbody>
-                </table>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                <br><br><br>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>';
-              }
-
-            }else {
-              echo '<div class="row">
-              <form method="post" name="codeSearch" class="text-center">
-              <input type="text" id="co" placeholder="Enter Key here !" name="co"  style="width: 200px; height: 35px"><input type="button" name="enroll" value="Enroll" id="enroll" class="example_a" >
-              </form>
-              </div>';
-            }?>
-            <!-- Data Table area End-->
+            </div>
           </div>
         </div>
-        <!-- /Container -->
+        <!-- /home wrapper -->
 
-      </div>
-      <!-- /Contact -->
-
-
-      <!-- Footer -->
-      <footer id="footer" class="sm-padding bg-dark">
+      </header>
+      <!-- /Header -->
+      <!-- Contact -->
+      <div id="course" class="section sm-padding">
 
         <!-- Container -->
         <div class="container">
 
-          <!-- Row -->
-          <div class="row">
+          <!--check already enrolled if check open assignments-->
+          <?php if (isset($array[$p]['c_code'])) {
+            if ($array[$p]['c_code'] == $code) {
 
-            <div class="col-md-12">
+              echo '<div id="course" class="section sm-padding">
+              <!-- Container -->
+              <div class="container">
 
-              <!-- footer copyright -->
-              <div class="footer-copyright">
-                <p>Copyright © 2019. All Rights Reserved.</p>
+              <input type="hidden" name="mc_code" value="';
+              echo $c['c_name'];
+              echo '">';
+
+              $ecourse = $c['c_name'];
+              $sql = "SELECT * FROM tbl_file WHERE course = '$ecourse'";
+              $cour = $db->query($sql);
+              $sql1 = "SELECT * FROM tbl_asses WHERE course = '$ecourse'";
+              $ass = $db->query($sql1);
+
+              echo '<!-- Row-->
+              <div class="row">
               </div>
-              <!-- /footer copyright -->
+              <!--Row -->
+              <!--Data Table area Start-->
+              <div class="data-table-area">
+              <div class="container">
+              <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="data-table-list">
+              <div class="row">
+              <div class="col-sm-6">
+              <div class="card text-center">
+              <div class="card-body">
+              <h5 class="card-title">';
+              echo 'Lectures';
+              echo '</h5>
+              <div class="table-responsive">
+              <table id="data-table-basic" class="table table-striped">
+              <thead>
+              <tr>
+              <th class="text-center">';
+              echo 'Name';
+              echo '</th>
+              <th class="text-center">';
+              echo 'File';
+              echo '</th>
+              <th class="text-center">';
+              echo 'View';
+              echo '</th>
+              <th class="text-center">';
+              echo 'Download';
+              echo '</th>
+              </tr>
+              </thead>
+              <tbody>';
+              while ($l = mysqli_fetch_assoc($cour)) {
+                echo '<tr>
+                <td>';
+                echo $l['name'];
+                echo '</td>
+                <td>';
+                echo $l['image'];
+                echo '</td>
+                <td><a href="Admin/Lecturer/lecs/upload/';
+                echo $l['image'];
+                echo '"';
+                echo 'target="_blank">';
+                echo 'View';
+                echo '</a></td>
+                <td><a href="Admin/Lecturer/lecs/upload/';
+                echo $l['image'];
+                echo '"';
+                echo 'download>';
+                echo 'Download';
+                echo '</td></tr>
+                </tr>';
+              }
+              echo '</tbody>
+              </table>
+              </div>
+              <!-- <a href="lecs/index.php" class="btn btn-primary">Click Here</a> -->
+              </div>
+              </div>
+              </div>
+              <div class="col-sm-5">
+              <div class="card text-center">
+              <div class="card-body">
+              <h5 class="card-title">';
+              echo 'Assignments';
+              echo '</h5>
+              <div class="table-responsive">
+              <table id="data-table-basic" class="table table-striped">
+              <thead>
+              <tr>
+              <th class="text-center">';
+              echo 'Name';
+              echo '</th>
+              <th class="text-center">';
+              echo 'Assignment';
+              echo '</th>
+              <th class="text-center">';
+              echo 'Download';
+              echo '</th>
+              </tr>
+              </thead>
+              <tbody>';
+              while ($l = mysqli_fetch_assoc($ass)) {
+                echo '<tr>
+                <td><a href="ass.php?id='; echo $l['id']; echo '">';
+                echo $l['name'];
+                echo '</a></td>
+                <td>';
+                echo $l['file'];
+                echo '</td>
+                <td><a href="Admin/Lecturer/assignments/upload/';
+                echo $l['file'];
+                echo '"';
+                echo 'download>';
+                echo 'Download';
+                echo '</td></tr>
+                </tr>';
+              }
+              echo '</tbody>
+              </table>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
+              <br><br><br>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>';
+            }
 
-            </div>
-
-          </div>
-          <!-- /Row -->
-
-        </div>
-        <!-- /Container -->
-
-      </footer>
-      <!-- /Footer -->
-
-      <!-- Back to top -->
-      <div id="back-to-top"></div>
-      <!-- /Back to top -->
-
-      <!-- Preloader -->
-      <div id="preloader">
-        <div class="preloader">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+          }else {
+            echo '<div class="row">
+            <form method="post" name="codeSearch" class="text-center">
+            <input type="text" id="co" placeholder="Enter Key here !" name="co"  style="width: 200px; height: 35px"><input type="button" name="enroll" value="Enroll" id="enroll" class="example_a" >
+            </form>
+            </div>';
+          }?>
+          <!-- Data Table area End-->
         </div>
       </div>
-      <!-- /Preloader -->
+      <!-- /Container -->
 
-      <!-- jQuery Plugins -->
-      <script type="text/javascript" src="js/jquery.min.js"></script>
-      <script type="text/javascript" src="js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-      <script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
-      <script type="text/javascript" src="js/main.js"></script>
+    </div>
+    <!-- /Contact -->
 
-      <script>
+    <?php
+    $sql_f = "SELECT * FROM feedback WHERE course = '$ecourse' ORDER BY id DESC LIMIT 7";
+    $comments = $db->query($sql_f);
 
-      // insert data to enrolled course table
-      $(document).ready(function () {
-        $("#enroll").click(function () {
-          let id = "<?php echo $id?>";
-          let user = "<?php echo $_SESSION['username']?>";
+    ?>
 
-          var result = "<?= $c['c_code']?>";
-          var code = document.getElementById('co').value;
+    <!-- About us Us -->
+    <div id="comments" class="section md-padding">
 
-          if (code != '') {
-            if (result == code) {
-              $.ajax({
-                url: 'insertdata.php',
-                type: "POST",
-                data: {id: id, username: user},
-                success: function (data) {
-                  swal({
-                    title: "Completed!",
-                    text: "You have successfully enrolled for this course..",
-                    icon: "success",
-                    button: "Great!!",
-                  }).then(function () {
-                    location.reload();
-                  });
-                },
-                error: function () {
-                  alert('Err');
-                }
-              });
-            } else {
-              swal("Not completed!", "Wrong enrollment key..", "error");
-              return false;
+      <!-- Container -->
+      <div class="container">
+
+        <!-- Row -->
+        <div class="row">
+
+          <?php
+          //Add comment
+          if(isset($_POST['add_comment'])){
+              $uname = $_POST['uname'];
+              $cour_name = $_POST['cour_name'];
+              $comment = $_POST['comment'];
+
+              if ($comment != null) {
+                $comsql = "INSERT INTO feedback (comment,name,course) VALUES ('$comment','$uname','$cour_name')";
+                $db->query($comsql);
+              }
             }
-          } else {
-            swal("Not completed!", "Please enter enrollment key..", "info");
-            return false;
-          }
 
-        });
-      });
+            if(isset($_POST['del_com'])){
+                // sql to delete a record
+                $id = $_GET['id'];
+                $delete_id = $_POST['delete_id'];
+                $sqldel = "DELETE FROM feedback WHERE id='$delete_id'";
+                $db->query($sqldel);
+            }
+           ?>
 
-      </script>
+          <!-- About us content -->
+          <div class="col-md-13">
+            <div class="section-header text-center">
+              <h3 class="title">Comments Section</h3>
+            </div>
+            <div class="wrapper">
+              <div class="comment-wrapper">
+                <h4 class="comment-title">User feedback .....</h4>
 
-    </body>
+                <div class="comment-insert">
+                  <h5 class="who-says">Says: <?= $user; ?></h5>
 
-    </html>
+                    <form role="form" method="post">
+                      <input type="hidden" name="uname" id="uname" value="<?= $user; ?>">
+                      <input type="hidden" name="cour_name" id="cour_name" value="<?= $ecourse; ?>">
+                      <div class="form-group">
+                        <div class="col-sm-12">
+                        <textarea name="comment" id="comment" placeholder="Enter Your feedback ..." cols="5"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-offset-11 col-sm-12">
+                          <button type="submit" name="add_comment" id="add_comment" class="btn btn-info">Post</button>
+                        </div>
+                      </div>
+                    </form>
+
+                </div>
+              </div>
+              <div class="comments-list">
+                <ul class="comments-holder-ul">
+
+                  <?php while ($comment = mysqli_fetch_assoc($comments)) { ?>
+                    <li class="comment-holder" id="_1">
+                      <div class="user-img">
+                        <img src="img/dummy.jpg" class="user-img-pic">
+                      </div>
+
+                      <div class="comment-body">
+                        <h6 class="username-field">
+                          <?= $comment['name']; ?>
+                        </h6>
+                        <div class="comment-text">
+                          <?= $comment['comment']; ?>
+                        </div>
+                      </div>
+
+                      <div class="comment-buttons-holder">
+
+                        <form role="form" method="post">
+                          <input type="hidden" name="delete_id" id="delete_id" value="<?= $comment['id']; ?>">
+                          <button type="submit" class="btn btn-info" name="del_com" id="del_com">
+                            <span class="glyphicon glyphicon-remove"></span></button>
+                        </form>
+
+                      </div>
+
+                    </li>
+                  <?php } ?>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /About us us content -->
+
+      </div>
+      <!-- /Row -->
+
+    </div>
+    <!-- /Container -->
+
+  </div>
+  <!-- /About Us -->
+
+
+
+  <!-- Footer -->
+  <footer id="footer" class="sm-padding bg-dark">
+
+    <!-- Container -->
+    <div class="container">
+
+      <!-- Row -->
+      <div class="row">
+
+        <div class="col-md-12">
+
+          <!-- footer copyright -->
+          <div class="footer-copyright">
+            <p>Copyright © 2019. All Rights Reserved.</p>
+          </div>
+          <!-- /footer copyright -->
+
+        </div>
+
+      </div>
+      <!-- /Row -->
+
+    </div>
+    <!-- /Container -->
+
+  </footer>
+  <!-- /Footer -->
+
+  <!-- Back to top -->
+  <div id="back-to-top"></div>
+  <!-- /Back to top -->
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <!-- /Preloader -->
+
+  <!-- jQuery Plugins -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+
+  <script>
+
+  // insert data to enrolled course table
+  $(document).ready(function () {
+    $("#enroll").click(function () {
+      let id = "<?php echo $id?>";
+      let user = "<?php echo $_SESSION['username']?>";
+
+      var result = "<?= $c['c_code']?>";
+      var code = document.getElementById('co').value;
+
+      if (code != '') {
+        if (result == code) {
+          $.ajax({
+            url: 'insertdata.php',
+            type: "POST",
+            data: {id: id, username: user},
+            success: function (data) {
+              swal({
+                title: "Completed!",
+                text: "You have successfully enrolled for this course..",
+                icon: "success",
+                button: "Great!!",
+              }).then(function () {
+                location.reload();
+              });
+            },
+            error: function () {
+              alert('Err');
+            }
+          });
+        } else {
+          swal("Not completed!", "Wrong enrollment key..", "error");
+          return false;
+        }
+      } else {
+        swal("Not completed!", "Please enter enrollment key..", "info");
+        return false;
+      }
+
+    });
+  });
+
+  </script>
+
+</body>
+
+</html>
