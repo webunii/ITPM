@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2019 at 09:26 AM
+-- Generation Time: May 03, 2019 at 08:18 AM
 -- Server version: 5.7.21-log
 -- PHP Version: 7.1.9
 
@@ -109,6 +109,30 @@ INSERT INTO `enrolled_courses` (`en_id`, `st_id`, `c_id`, `c_code`, `c_name`, `u
 (83, 18, 35, 'it3034', 'SD', 'Chamu97'),
 (85, 21, 35, 'it3034', 'SD', 'Modi96'),
 (86, 21, 47, 'IT1010', 'OOP', 'Modi96');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(11) NOT NULL,
+  `comment` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `course` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `comment`, `name`, `course`) VALUES
+(2, 'About OOP Lecture 2', 'Chamu97', 'ITSD'),
+(3, 'About SD Assignment', 'Chamu97', 'SD'),
+(6, 'Unable to download Lecture 1', 'Chamu97', 'SD'),
+(7, 'Unable to download Assignment\r\n', 'Chamu97', 'SD'),
+(18, 'To know About Lecture 2', 'Modi96', 'SD');
 
 -- --------------------------------------------------------
 
@@ -361,6 +385,12 @@ ALTER TABLE `enrolled_courses`
   ADD PRIMARY KEY (`en_id`);
 
 --
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `notice`
 --
 ALTER TABLE `notice`
@@ -435,6 +465,12 @@ ALTER TABLE `courses`
 --
 ALTER TABLE `enrolled_courses`
   MODIFY `en_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `notice`

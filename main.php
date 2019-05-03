@@ -7,41 +7,11 @@
 //  check session time
   $_SESSION['logged_in'] = true; //set you've logged in
   $_SESSION['last_activity'] = time(); //your last activity was now, having logged in.
-  $_SESSION['expire_time'] = 2000; //expire time in seconds: three hours (you must change this)
-
+  $_SESSION['expire_time'] = 100; //expire time in seconds: three hours (you must change this)
 
   include('db/dbcon.php');
 
   ?>
-
-<!--  session timeout function-->
-<!--  <script type="text/javascript">-->
-<!--      function start_countdown()-->
-<!--      {-->
-<!---->
-<!--          var counter=5;-->
-<!--          myVar= setInterval(function()-->
-<!--          {-->
-<!--              if(counter==0)-->
-<!--              {-->
-<!--                  $.ajax-->
-<!--                  ({-->
-<!--                      type:'post',-->
-<!--                      url:'logout.php',-->
-<!--                      data:{-->
-<!--                          logout:"logout"-->
-<!--                      },-->
-<!--                      success:function(response)-->
-<!--                      {-->
-<!--                          window.location="index.php";-->
-<!--                      }-->
-<!--                  });-->
-<!--              }-->
-<!--              counter--;-->
-<!--          }, 1000)-->
-<!--      }-->
-<!--  </script>-->
-
 
   <head>
 
@@ -156,8 +126,6 @@
             <li><a href="#contact">Contact</a></li>
             <li><a href="course.php">Courses</a></li>
 
-
-
             <!-- My course dropdown -->
             <?php if($data['user_name'] == $user){
                 echo '<li class="has-dropdown"><a href="#">My Courses</a>
@@ -169,16 +137,15 @@
                     </li>';
             }?>
 
-
-
-
-
             <li class="has-dropdown"><a href="#">Libraries</a>
               <ul class="dropdown">
                 <li><a href="references.php">References</a></li>
                 <li><a href="papers.php">Past Papers</a></li>
               </ul>
             </li>
+
+            <li><a href="qa.php">Q & A</a></li>
+
             <?php while ($d = mysqli_fetch_assoc($result)) { ?>
               <li class="has-dropdown"><a href="#">Hello, &nbsp;<?= $d['fname'].' '.' '.$d['lname']; ?></a>
                 <ul class="dropdown">
