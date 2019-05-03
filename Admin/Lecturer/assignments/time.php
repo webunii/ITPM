@@ -62,6 +62,7 @@ include("config.php");
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
   <script language="JavaScript" type="text/javascript" src="course.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -190,6 +191,44 @@ if(isset($_POST['insert']))
   // $result = mysqli_query($mysqli, "UPDATE timer SET h='$h' WHERE id=1");
   // $result = mysqli_query($mysqli, "UPDATE timer SET m='$m' WHERE id=1");
   // $result = mysqli_query($mysqli, "UPDATE timer SET s='$s' WHERE id=1");
+//    $time = mysqli_query($mysqli, "SELECT * FROM timer WHERE id='$rid'");
+//    $time2 = mysqli_fetch_assoc($time);
+
+
+//    email
+    require 'PHPMailer/PHPMailerAutoload.php';// require this
+//require 'PHPMailer/class.phpmailer.php';
+    $mail = new PHPMailer;//create an object
+
+    $mail->isSMTP();
+//    $mail->SMTPDebug = 1;
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = "tls";
+    $mail->Host = "smtp.gmail.com";
+    $mail->Port = 587;
+
+
+    $mail->Username = 'itpm1920@gmail.com';
+    $mail->Password = 'Admin@2019';
+
+    $mail->setFrom('itpm1920@gmail.com', "Webuni");
+    $mail->addAddress("dinukakulatunga@gmail.com");
+    $mail->addAddress("majchemachandra@gmail.com");
+    $mail->addReplyTo("kushib96@gmail.com");
+
+    $mail->IsHTML(true);
+    $mail->Subject  = 'Webuni';
+    $mail->Body     = 'Kindly reminder about the new assignment.....'. "<br><br>".'Assignment Name : '.$c['name']. "<br>".'Course Name : '.$c['course']. "<br><br>".'Please vist Webuni for more details : http://localhost:8030/ITPM/';
+
+    if(!$mail->send()) {
+        echo 'Message was not sent.';
+        echo 'Mailer error: ' . $mail->ErrorInfo;
+    } else {
+        echo "<script>swal('Timer Set','','success');</script>";
+//        header("location:index.php");
+    }
+
+//    end of email
 }
 
 ?>
@@ -275,7 +314,7 @@ while($res = mysqli_fetch_array($result))
                   </div>
                   <div class="panel-body">
                     <div class="position-center  text-center">
-                      <form class="form-inline" role="form"name="form1" method="POST" action="email.php">
+                      <form class="form-inline" role="form"name="form1" method="POST" action="time.php?id=<?= $rid; ?>">
                         <div class="form-group">
 
                           Date* <input type="date" name="date"class="form-control"  value="<?php echo $date;?>"required >
