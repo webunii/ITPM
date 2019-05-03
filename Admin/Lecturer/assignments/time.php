@@ -185,7 +185,7 @@ if(isset($_POST['insert']))
   // checking empty fields
 
   //updating the table
-  $result = mysqli_query($mysqli, "INSERT INTO timer(date, h, m, s, aid, course) VALUES('$date', '$h', '$m', '$s', '$aid', '$course')");
+  $result = mysqli_query($mysqli, "INSERT INTO timer(date, h, m, s, name, course) VALUES('$date', '$h', '$m', '$s', '$aid', '$course')");
   // $result = mysqli_query($mysqli, "UPDATE timer SET date='$date' WHERE id=1");
   // $result = mysqli_query($mysqli, "UPDATE timer SET h='$h' WHERE id=1");
   // $result = mysqli_query($mysqli, "UPDATE timer SET m='$m' WHERE id=1");
@@ -275,7 +275,7 @@ while($res = mysqli_fetch_array($result))
                   </div>
                   <div class="panel-body">
                     <div class="position-center  text-center">
-                      <form class="form-inline" role="form"name="form1" method="POST" action="time.php?id=<?= $rid; ?>">
+                      <form class="form-inline" role="form"name="form1" method="POST" action="email.php">
                         <div class="form-group">
 
                           Date* <input type="date" name="date"class="form-control"  value="<?php echo $date;?>"required >
@@ -296,12 +296,12 @@ while($res = mysqli_fetch_array($result))
                           S* <input type="number" class="form-control"name="s"  id="exampleInputPassword2" value="<?php echo $s;?>"placeholder="s"style="width:78px;" required>
                         </div>
                         &nbsp;
-                        <input type="hidden" name="aid" value="<?php echo $c['id']; ?>">
+                        <input type="hidden" name="aid" value="<?php echo $c['name']; ?>">
                         <input type="hidden" name="course" value="<?php echo $c['course']; ?>">
                         <div class="checkbox">
 
                         </div>
-                        <button type="submit" class="btn btn-danger"name="insert">Set Assesments time</button>
+                        <button type="submit" class="btn btn-danger" name="insert">Set Assesments time</button>
                       </form>
                     </div>
                   </div>
