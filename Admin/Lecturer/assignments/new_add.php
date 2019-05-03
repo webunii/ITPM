@@ -76,6 +76,8 @@ if(isset($_REQUEST['btn_insert']))
 
 			if($insert_stmt->execute())
 			{
+
+//			    emailsend();
 				$insertMsg="File Upload Successfully........"; //execute query success message
 				header("location:index.php"); // redirect to index.php page
 			}
@@ -254,6 +256,7 @@ if(isset($_REQUEST['btn_insert']))
                             <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9 m-t-15">
                             <button type="submit"  name="btn_insert" class="btn btn-success btn-md">Insert</button>
+<!--                                <a href="email.php" name="btn_insert" class="btn btn-success btn-md">Insert</a>-->
                             &nbsp;<a href="index.php" class="btn btn-danger">Cancel</a>
                             </div>
                             </div>
