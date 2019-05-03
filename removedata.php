@@ -22,7 +22,6 @@ $cname = $c['c_name'];
 //    echo "deleted";
     header("Location: materials.php?id=" .$id);
 
-
     ?>
 
 <script type="text/javascript">
