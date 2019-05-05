@@ -49,4 +49,4 @@ This is our 3rd Year 1st Semester group project.
 	Students can ask problems which are related to the course materials on comments section.
 	
 * **e-Mail reminder**
-	Students get a e-mail if a assignment is added.
+	Students get a e-mail then a assignment is added.
