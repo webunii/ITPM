@@ -105,8 +105,32 @@ include("config.php");
   $sql = "SELECT * FROM tbl_asses WHERE id = '$rid'";
   $asses = $mysqli->query($sql);
   $c = mysqli_fetch_assoc($asses);
+  $l = $c['course'];
+
+
+
+
+  //get students who enrolled for the particular course
+  $em = "SELECT user_name FROM enrolled_courses WHERE c_name = '$l'";
+  $email = $mysqli->query($em);
+
+  for ($k = 0; $k <= mysqli_num_rows($email) - 1; $k++) {
+      while ($stemail = mysqli_fetch_assoc($email)) {
+
+          $array[] =  $stemail['user_name'];
+      }
+  }
+
+  //get the email of the students who are enrolled for the particular course
+  for ($k = 0; $k <= count($array) - 1; $k++) {
+  $lol = "SELECT * FROM student WHERE username = '$array[$k]'";
+  $lol1 = mysqli_query($mysqli, $lol);
+  $lol_result = mysqli_fetch_array($lol1);
+      $array2[] = $lol_result['email'];
+  }
 
   ?>
+
   <?php
   while($res = mysqli_fetch_array($result)) {
     $date = $res['date'];
@@ -195,9 +219,9 @@ if(isset($_POST['insert']))
 //    $time2 = mysqli_fetch_assoc($time);
 
 
+
 //    email
     require 'PHPMailer/PHPMailerAutoload.php';// require this
-//require 'PHPMailer/class.phpmailer.php';
     $mail = new PHPMailer;//create an object
 
     $mail->isSMTP();
@@ -212,8 +236,11 @@ if(isset($_POST['insert']))
     $mail->Password = 'Admin@2019';
 
     $mail->setFrom('itpm1920@gmail.com', "Webuni");
-    $mail->addAddress("dinukakulatunga@gmail.com");
-    $mail->addAddress("majchemachandra@gmail.com");
+
+    for($r = 0; $r <= count($array2) - 1; $r++){
+        $mail->addAddress($array2[$r]);
+    }
+
     $mail->addReplyTo("kushib96@gmail.com");
 
     $mail->IsHTML(true);
