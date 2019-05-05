@@ -40,10 +40,12 @@ This is our 3rd Year 1st Semester group project.
 	
 * **e Library**
 	* References
-		* Add/Update/Delete References
+		* Add/Update/Delete/view References
 	
 	* Past papers
-		* Add/Update/Delete Past papers
+		* Add/Update/Delete/view Past papers
 
 * **Comments Section**
 	Students can ask problems which are related to the course materials on comments section.
+	
+* **e-mail reminder**
